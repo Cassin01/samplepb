@@ -20,6 +20,7 @@ package proto;
 // カテゴリ検索用Param型
 message CategoryParam{
   string id = 1;
+  string keyword = 2;
 }
 // 製品カテゴリ複数件を返すResult型
 message CategoriesResult {
@@ -71,10 +72,13 @@ service CategoryQuery {
 }
 // 商品問い合せサービス型
 service ProductQuery{
+  // すべての商品を取得して返す(Server streaming RPC)
+  rpc ListStream(google.protobuf.Empty)   returns (stream Product);
   // すべての商品を取得して返す
-  rpc List(google.protobuf.Empty) returns (ProductsResult);
+  rpc List(google.protobuf.Empty)   returns (ProductsResult);
   // 指定されたIDの商品を取得して返す
-  rpc ById(ProductParam) returns (ProductResult);
+  rpc ById(ProductParam)    returns (ProductResult);
   // 指定されたキーワードの商品を取得して返す
   rpc ByKeyword(ProductParam) returns (ProductsResult);
 }
+
