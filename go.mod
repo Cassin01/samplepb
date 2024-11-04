@@ -1,4 +1,4 @@
-module samplepb
+module github.com/Cassin01/samplepb
 
 go 1.23.2
 
