@@ -35,7 +35,7 @@ message CategoryResult{
     Category categroy = 1; // 商品カテゴリ
     Error error = 2; // エラー
   }
-  google.protobuf.Timestamp timestamp =3;
+  google.protobuf.Timestamp timestamp = 3;
 }
 //          ╭─────────────────────────────────────────────────────────╮
 //          │            商品検索用Param型とResult型の定義            │
